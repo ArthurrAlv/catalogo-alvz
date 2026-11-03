@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gamecamp — central de campeonatos comunitários." />
+    <title>Gamecamp — Central de campeonatos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <svg class="icon-defs" aria-hidden="true">
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H4v2a4 4 0 0 0 4 4M16 6h4v2a4 4 0 0 1-4 4M12 13v4M8 21h8M9 17h6"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 2-6 6-6s6 2 6 6"/><circle cx="18" cy="9" r="2"/><path d="M16 15c3 0 5 2 5 5"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17.5v.5"/></symbol>
+      <symbol id="i-page" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5V3Z"/><path d="M14 3v5h5M8 12h8M8 16h6"/></symbol>
+      <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.5 2.1c-.8.5-1.3 1-1.3 2.1M12 17.5v.2"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1-1.8 3.1-.2-.1-2.1-.8a7 7 0 0 1-1.4.8l-.3 2.2H10l-.3-2.2a7 7 0 0 1-1.4-.8l-2.1.8-.2.1-1.8-3.1.1-.1 1.8-1.4a7 7 0 0 1 0-1.6L4.3 10.6l-.1-.1L6 7.4l.2.1 2.1.8a7 7 0 0 1 1.4-.8l.3-2.2h3.6l.3 2.2a7 7 0 0 1 1.4.8l2.1-.8.2-.1 1.8 3.1-.1.1-1.8 1.4a7 7 0 0 1 0 1.6l1.9 1.4Z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 8h18c0-1-3-1-3-8ZM10 21h4"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v7H4V6h7"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 2.7-8 8-8s8 3 8 8"/></symbol>
+      <symbol id="i-log-out" viewBox="0 0 24 24"><path d="M10 4H4v16h6M14 8l4 4-4 4M18 12H9"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    </svg>
+
+    <main class="login-screen" data-login-screen>
+      <section class="login-brand-panel">
+        <a class="brand-lockup" href="#" aria-label="Gamecamp">
+          <span class="brand-symbol"><i></i><i></i><i></i></span>
+          <strong>GAMECAMP</strong>
+        </a>
+        <div class="login-message">
+          <p class="overline">CENTRAL DE COMPETIÇÃO</p>
+          <h1>Organizar é parte<br />do jogo.</h1>
+          <p>Da primeira inscrição ao resultado final, tudo que o organizador precisa para conduzir um campeonato da comunidade.</p>
+        </div>
+        <div class="match-signal" aria-label="Partida ao vivo">
+          <header><span><i></i> PARTIDA AO VIVO</span><time>18:42</time></header>
+          <div class="match-signal-score"><span><b>NF</b>Nexa Force</span><strong>1 — 1</strong><span>Os Brabos<b>OB</b></span></div>
+          <footer>SEMIFINAL <i></i> GEM GRAB <i></i> GAME 3</footer>
+        </div>
+      </section>
+
+      <section class="login-form-panel">
+        <form class="login-form" data-login-form>
+          <div class="login-mobile-brand"><span class="brand-symbol"><i></i><i></i><i></i></span><strong>GAMECAMP</strong></div>
+          <p class="overline">GAMECAMP</p>
+          <h2 data-auth-title>Login</h2>
+          <p class="form-intro" data-auth-intro>Entre na sua conta.</p>
+
+          <label class="input-field signup-only is-hidden">
+            <span>Nome</span>
+            <span class="input-control plain"><input name="displayName" type="text" placeholder="Como você quer ser chamado" autocomplete="name" minlength="2" maxlength="80" /></span>
+          </label>
+
+          <label class="input-field">
+            <span>E-mail</span>
+            <span class="input-control"><svg><use href="#i-mail"/></svg><input name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required /></span>
+          </label>
+          <label class="input-field">
+            <span>Senha</span>
+            <span class="input-control"><svg><use href="#i-lock"/></svg><input name="password" type="password" placeholder="Sua senha" autocomplete="current-password" minlength="8" required /></span>
+          </label>
+          <label class="input-field signup-only is-hidden">
+            <span>Confirmar senha</span>
+            <span class="input-control"><svg><use href="#i-lock"/></svg><input name="passwordConfirmation" type="password" placeholder="Digite a senha novamente" autocomplete="new-password" minlength="8" /></span>
+          </label>
+          <div class="login-options" data-login-options><label><input type="checkbox" checked /> Manter conectado</label><button type="button" data-password-reset>Esqueci minha senha</button></div>
+          <p class="login-error is-hidden" data-login-error role="alert"></p>
+          <button class="primary-action login-submit" type="submit" data-login-submit><span>Entrar</span><svg><use href="#i-arrow"/></svg></button>
+          <p class="auth-switch"><span data-auth-switch-copy>Ainda não tem conta?</span> <button type="button" data-auth-mode="signup">Criar conta</button></p>
+        </form>
+      </section>
+    </main>
+
+    <div class="app-shell is-hidden" data-app-shell>
+      <aside class="sidebar is-collapsed" data-sidebar>
+        <header class="sidebar-header">
+          <a class="brand-lockup sidebar-brand" href="#" aria-label="Gamecamp">
+            <span class="brand-symbol"><i></i><i></i><i></i></span>
+            <strong class="sidebar-label">GAMECAMP</strong>
+          </a>
+          <button class="sidebar-toggle" data-sidebar-toggle aria-label="Expandir menu" title="Expandir menu">
+            <svg><use href="#i-chevron"/></svg>
+          </button>
+        </header>
+
+        <nav class="sidebar-nav" aria-label="Navegação do dashboard">
+          <p class="sidebar-section-label sidebar-label">ORGANIZAÇÃO</p>
+          <button class="nav-item is-active" data-view="overview" title="Visão geral"><svg><use href="#i-grid"/></svg><span class="sidebar-label">Visão geral</span></button>
+          <button class="nav-item" data-view="tournaments" data-organizer-only title="Campeonatos"><svg><use href="#i-trophy"/></svg><span class="sidebar-label">Campeonatos</span><b class="sidebar-label">2</b></button>
+          <button class="nav-item" data-view="teams" data-organizer-only title="Equipes"><svg><use href="#i-users"/></svg><span class="sidebar-label">Equipes</span></button>
+          <button class="nav-item" data-view="disputes" data-organizer-only title="Disputas"><svg><use href="#i-alert"/></svg><span class="sidebar-label">Disputas</span><b class="sidebar-label alert-count">1</b></button>
+
+          <p class="sidebar-section-label sidebar-label secondary-label">PRODUTO</p>
+          <button class="nav-item" data-view="presentation" title="Apresentação"><svg><use href="#i-page"/></svg><span class="sidebar-label">Apresentação</span></button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="nav-item" data-demo-toast="Central de ajuda em breve" title="Ajuda"><svg><use href="#i-help"/></svg><span class="sidebar-label">Ajuda</span></button>
+          <button class="profile-trigger" data-profile-trigger aria-expanded="false" title="Abrir perfil">
+            <span class="avatar">RC</span>
+            <span class="profile-copy sidebar-label"><strong data-profile-name>Conta Gamecamp</strong><small data-role-label>Participante</small></span>
+            <svg class="profile-dots sidebar-label"><use href="#i-dots"/></svg>
+          </button>
+
+          <div class="profile-popover" data-profile-popover aria-hidden="true">
+            <header><span class="avatar">RC</span><div><strong data-profile-name>Rafa Costa</strong><small data-profile-email>rafa@gamecamp.local</small></div></header>
+            <button data-demo-toast="Página de conta em breve"><svg><use href="#i-user"/></svg> Minha conta</button>
+            <button data-demo-toast="Preferências em breve"><svg><use href="#i-settings"/></svg> Preferências</button>
+            <hr />
+            <button class="danger-action" data-log-out><svg><use href="#i-log-out"/></svg> Sair</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <button class="mobile-sidebar-toggle" data-sidebar-toggle aria-label="Abrir menu"><svg><use href="#i-grid"/></svg></button>
+          <div class="workspace-context">
+            <span class="context-mark">GC</span>
+            <div><strong>Gamecamp Studio</strong><small>Espaço de organização</small></div>
+          </div>
+          <label class="global-search"><svg><use href="#i-search"/></svg><input type="search" placeholder="Buscar campeonato, equipe ou jogador" /><kbd>⌘ K</kbd></label>
+          <div class="topbar-actions">
+            <button class="icon-action notification-action" aria-label="Notificações" data-demo-toast="Você tem 3 notificações"><svg><use href="#i-bell"/></svg><i></i></button>
+            <button class="primary-action compact-action" data-open-create data-organizer-only><svg><use href="#i-plus"/></svg><span>Novo campeonato</span></button>
+          </div>
+        </header>
+
+        <div class="workspace-body">
+          <section class="workspace-view is-active" data-view-panel="overview">
+            <div class="participant-dashboard is-hidden" data-participant-dashboard>
+              <div class="page-heading">
+                <div><p class="overline">SUA CONTA</p><h1>Bem-vindo à Gamecamp</h1><p>Acompanhe seus campeonatos e equipes em um só lugar.</p></div>
+                <button class="primary-action" data-request-organizer>Quero organizar campeonatos</button>
+              </div>
+              <section class="dashboard-panel participant-welcome">
+                <div><p class="overline">PARTICIPAÇÃO</p><h2>Você ainda não está em uma equipe</h2><p>Quando um organizador adicionar ou convidar você, o campeonato aparecerá aqui.</p></div>
+                <div class="participant-steps">
+                  <span><b>01</b><strong>Receba um convite</strong><small>Do organizador ou capitão da equipe</small></span>
+                  <span><b>02</b><strong>Confirme sua equipe</strong><small>Confira elenco, modalidade e horário</small></span>
+                  <span><b>03</b><strong>Acompanhe as partidas</strong><small>Check-in, sala, placar e resultados</small></span>
+                </div>
+              </section>
+            </div>
+            <div data-organizer-dashboard>
+            <div class="page-heading">
+              <div><p class="overline">DOMINGO, 25 DE OUTUBRO</p><h1>Visão geral</h1><p>A operação de hoje, sem ruído.</p></div>
+              <div class="heading-actions"><button class="secondary-action"><svg><use href="#i-calendar"/></svg> Ver agenda</button><button class="primary-action" data-open-create data-organizer-only><svg><use href="#i-plus"/></svg> Criar campeonato</button></div>
+            </div>
+
+            <div class="metric-strip">
+              <article><header><span>CAMPEONATOS ATIVOS</span><b>↗ 1 este mês</b></header><strong>02</strong><footer><i class="signal positive"></i> Ambos dentro do prazo</footer></article>
+              <article><header><span>EQUIPES INSCRITAS</span><b>+12%</b></header><strong>24</strong><footer><i class="signal positive"></i> 21 com check-in</footer></article>
+              <article><header><span>PARTIDAS HOJE</span><b>3 restantes</b></header><strong>05</strong><footer><i class="signal live"></i> 1 acontecendo agora</footer></article>
+              <article><header><span>PRECISA DE VOCÊ</span><b class="warning-text">Atenção</b></header><strong>03</strong><footer><i class="signal warning"></i> Ações pendentes</footer></article>
+            </div>
+
+            <div class="dashboard-grid">
+              <section class="dashboard-panel operations-panel">
+                <header class="panel-header"><div><p class="overline">OPERAÇÃO EM ANDAMENTO</p><h2>Copa da Quebrada</h2></div><button class="quiet-action" data-view="tournaments">Abrir campeonato <svg><use href="#i-arrow"/></svg></button></header>
+                <div class="operation-summary">
+                  <div class="event-identity"><span class="event-monogram">CQ</span><div><strong>Semifinal • Partida 6</strong><small>Brawl Stars · Eliminação simples · 8 equipes</small></div></div>
+                  <div class="live-clock"><span><i></i> AO VIVO</span><strong>18:42</strong></div>
+                </div>
+                <div class="live-match">
+                  <div class="team-side"><span class="team-shield violet">NF</span><div><strong>Nexa Force</strong><small>Luan · Bia · TK</small></div></div>
+                  <div class="central-score"><small>GAME 3 DE 3</small><strong>1 <i>—</i> 1</strong><span>Gem Grab · Hard Rock Mine</span></div>
+                  <div class="team-side right"><div><strong>Os Brabos</strong><small>Dudu · Naty · Vini</small></div><span class="team-shield lime">OB</span></div>
+                </div>
+                <div class="stage-track"><span class="complete"><i>✓</i><b>Check-in</b></span><span class="complete"><i>✓</i><b>Sala</b></span><span class="current"><i>3</i><b>Partida</b></span><span><i>4</i><b>Resultado</b></span></div>
+                <footer class="panel-footer"><span>Próxima: Fúria Local × Distrito 9 às 20:40</span><button class="primary-action compact-action" data-demo-toast="Central da partida aberta">Acompanhar partida</button></footer>
+              </section>
+
+              <aside class="dashboard-panel action-panel">
+                <header class="panel-header"><div><p class="overline">FILA DO ORGANIZADOR</p><h2>Precisa de você</h2></div><span class="count-badge">3</span></header>
+                <div class="action-list">
+                  <button><span class="action-icon warning"><svg><use href="#i-clock"/></svg></span><span><strong>Distrito 9 em atraso</strong><small>Check-in encerra em 04:32</small></span><svg><use href="#i-chevron"/></svg></button>
+                  <button><span class="action-icon danger"><svg><use href="#i-alert"/></svg></span><span><strong>Resultado contestado</strong><small>Neon Rush × K9 • Quartas</small></span><svg><use href="#i-chevron"/></svg></button>
+                  <button><span class="action-icon neutral"><svg><use href="#i-users"/></svg></span><span><strong>Elenco aguardando aceite</strong><small>Pixelados • 1 jogador</small></span><svg><use href="#i-chevron"/></svg></button>
+                </div>
+                <footer class="panel-footer"><button class="quiet-action" data-view="disputes">Ver todas as pendências <svg><use href="#i-arrow"/></svg></button></footer>
+              </aside>
+            </div>
+
+            <section class="dashboard-panel recent-panel">
+              <header class="panel-header"><div><p class="overline">MOVIMENTO RECENTE</p><h2>Campeonatos</h2></div><button class="secondary-action small-action" data-view="tournaments">Ver todos</button></header>
+              <div class="tournament-table" role="table" aria-label="Campeonatos recentes">
+                <div class="table-row table-head" role="row"><span>CAMPEONATO</span><span>STATUS</span><span>PROGRESSO</span><span>PRÓXIMA AÇÃO</span><span></span></div>
+                <div class="table-row" role="row"><span class="tournament-name"><b class="event-monogram small">CQ</b><span><strong>Copa da Quebrada</strong><small>Brawl Stars · 8 equipes</small></span></span><span><i class="status-pill live"><b></b> Em andamento</i></span><span><strong>5 de 7 partidas</strong><i class="progress-bar"><b style="width:71%"></b></i></span><span><strong>Hoje, 20:40</strong><small>Semifinal 2</small></span><button aria-label="Opções"><svg><use href="#i-dots"/></svg></button></div>
+                <div class="table-row" role="row"><span class="tournament-name"><b class="event-monogram small blue">RL</b><span><strong>Racha de Novembro</strong><small>Basquete 3×3 · 12 equipes</small></span></span><span><i class="status-pill scheduled"><b></b> Inscrições</i></span><span><strong>9 de 12 equipes</strong><i class="progress-bar"><b style="width:75%"></b></i></span><span><strong>07 nov, 19:00</strong><small>Fechar inscrições</small></span><button aria-label="Opções"><svg><use href="#i-dots"/></svg></button></div>
+              </div>
+            </section>
+            </div>
+          </section>
+
+          <section class="workspace-view" data-view-panel="tournaments">
+            <div class="page-heading compact"><div><p class="overline">COPA DA QUEBRADA</p><h1>Chave e partidas</h1><p>Eliminação simples · Semifinais em andamento</p></div><div class="heading-actions"><button class="secondary-action">Regulamento</button><button class="primary-action compact-action">Gerenciar rodada</button></div></div>
+            <section class="dashboard-panel bracket-panel">
+              <header class="panel-header"><div><p class="overline">CHAVE PRINCIPAL</p><h2>Eliminação simples</h2></div><div class="bracket-legend"><span><i class="signal live"></i> Ao vivo</span><span><i class="signal positive"></i> Finalizada</span></div></header>
+              <div class="bracket-board">
+                <div class="bracket-column"><h3>QUARTAS DE FINAL</h3><article class="bracket-match finished"><span>Nexa Force <b>2</b></span><span>Zona Norte <b>0</b></span></article><article class="bracket-match finished"><span>Os Brabos <b>2</b></span><span>Alpha Crew <b>1</b></span></article><article class="bracket-match finished"><span>Fúria Local <b>2</b></span><span>Pixelados <b>0</b></span></article><article class="bracket-match"><span>Distrito 9 <b>—</b></span><span>Ritmo Rush <b>—</b></span></article></div>
+                <div class="bracket-column centered"><h3>SEMIFINAIS</h3><article class="bracket-match is-live"><small>AO VIVO · GAME 3</small><span>Nexa Force <b>1</b></span><span>Os Brabos <b>1</b></span></article><article class="bracket-match"><small>HOJE · 20:40</small><span>Fúria Local <b>—</b></span><span>A definir <b>—</b></span></article></div>
+                <div class="bracket-column final-column"><h3>GRANDE FINAL</h3><article class="bracket-match final-match"><small>HOJE · 21:30</small><span>Finalista 1 <b>—</b></span><span>Finalista 2 <b>—</b></span></article></div>
+              </div>
+            </section>
+          </section>
+
+          <section class="workspace-view" data-view-panel="teams">
+            <div class="page-heading compact"><div><p class="overline">COMUNIDADE</p><h1>Equipes</h1><p>Elencos, capitães e situação de participação.</p></div><button class="primary-action"><svg><use href="#i-plus"/></svg> Convidar equipe</button></div>
+            <section class="dashboard-panel teams-panel">
+              <div class="teams-grid">
+                <article><span class="team-shield violet">NF</span><div><strong>Nexa Force</strong><small>Luan · Bia · TK · Niko</small></div><i class="status-pill confirmed"><b></b> Confirmada</i></article>
+                <article><span class="team-shield lime">OB</span><div><strong>Os Brabos</strong><small>Dudu · Naty · Vini</small></div><i class="status-pill confirmed"><b></b> Confirmada</i></article>
+                <article><span class="team-shield red">FL</span><div><strong>Fúria Local</strong><small>Maya · Gu · Levi · Iris</small></div><i class="status-pill confirmed"><b></b> Confirmada</i></article>
+                <article><span class="team-shield cyan">D9</span><div><strong>Distrito 9</strong><small>Leo · Rani · Beto</small></div><i class="status-pill pending"><b></b> Pendente</i></article>
+              </div>
+            </section>
+          </section>
+
+          <section class="workspace-view" data-view-panel="disputes">
+            <div class="page-heading compact"><div><p class="overline">ARBITRAGEM</p><h1>Disputas</h1><p>Evidências, decisões e histórico de alterações.</p></div><button class="secondary-action">Política de disputa</button></div>
+            <section class="dashboard-panel dispute-card">
+              <header><span class="action-icon danger"><svg><use href="#i-alert"/></svg></span><div><p class="overline">ABERTA HÁ 06 MIN</p><h2>Neon Rush × K9</h2><p>Resultado da segunda partida contestado pela equipe K9.</p></div><i class="status-pill review"><b></b> Em análise</i></header>
+              <div class="evidence-row"><span><small>RESULTADO INFORMADO</small><strong>Neon Rush 2 — 0 K9</strong></span><span><small>MOTIVO</small><strong>Configuração incorreta da sala</strong></span><span><small>EVIDÊNCIAS</small><strong>2 screenshots</strong></span></div>
+              <footer><button class="secondary-action">Ver evidências</button><button class="primary-action" data-demo-toast="Painel de decisão aberto">Analisar disputa</button></footer>
+            </section>
+          </section>
+
+          <section class="workspace-view" data-view-panel="presentation">
+            <div class="page-heading compact"><div><p class="overline">VISÃO DO PRODUTO</p><h1>Apresentação</h1><p>A ideia original continua aqui, agora subordinada ao produto.</p></div><button class="secondary-action"><svg><use href="#i-external"/></svg> Compartilhar resumo</button></div>
+            <section class="presentation-board">
+              <article class="presentation-statement"><span>01 / PROBLEMA</span><h2>Campeonatos pequenos ainda vivem entre planilha, grupo e improviso.</h2><p>O Gamecamp junta inscrição, chave, partida, evidência e decisão numa operação única, compreensível no celular.</p></article>
+              <article><span>02 / PRIMEIRO RECORTE</span><h3>Brawl Stars</h3><p>Equipes de três, batalha amistosa, check-in, sala, sets, games e resultado confirmado pelos capitães.</p></article>
+              <article><span>03 / MOTOR</span><h3>Multi-modalidade</h3><p>O núcleo permanece; placar, elenco e regras mudam conforme o esporte ou jogo.</p></article>
+              <article class="presentation-quote"><p>“Menos caos no grupo.<br />Mais jogo na tela.”</p><small>PRINCÍPIO DE PRODUTO</small></article>
+            </section>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <div class="dialog-backdrop is-hidden" data-create-dialog role="dialog" aria-modal="true" aria-labelledby="create-title">
+      <section class="create-dialog">
+        <header><div><p class="overline">NOVO CAMPEONATO</p><h2 id="create-title">Comece pelo essencial</h2></div><button data-close-create aria-label="Fechar">×</button></header>
+        <div class="create-options">
+          <button class="is-selected" data-game="Brawl Stars"><span class="game-glyph">BS</span><span><strong>Brawl Stars</strong><small>3×3 · Online</small></span><i>✓</i></button>
+          <button data-game="Basquete 3x3"><span class="game-glyph">3×3</span><span><strong>Basquete</strong><small>Quadra · Presencial</small></span><i>✓</i></button>
+          <button data-game="Outra modalidade"><span class="game-glyph">+</span><span><strong>Outra modalidade</strong><small>Configurar do zero</small></span><i>✓</i></button>
+        </div>
+        <label class="input-field"><span>Nome do campeonato</span><span class="input-control plain"><input data-tournament-name value="Copa da Comunidade" minlength="3" maxlength="120" required /></span></label>
+        <footer><button class="secondary-action" data-close-create>Cancelar</button><button class="primary-action" data-create-draft>Criar rascunho <svg><use href="#i-arrow"/></svg></button></footer>
+      </section>
+    </div>
+
+    <div class="dialog-backdrop is-hidden" data-organizer-dialog role="dialog" aria-modal="true" aria-labelledby="organizer-title">
+      <section class="create-dialog organizer-dialog">
+        <header><div><p class="overline">PERMISSÃO DE ORGANIZADOR</p><h2 id="organizer-title">Conte um pouco sobre o campeonato</h2></div><button data-close-organizer aria-label="Fechar">×</button></header>
+        <p class="dialog-intro">Você continuará usando sua conta normalmente enquanto a solicitação é analisada.</p>
+        <label class="input-field"><span>O que você pretende organizar?</span><span class="input-control textarea-control"><textarea data-organizer-message minlength="20" maxlength="1000" placeholder="Ex.: campeonato comunitário de Brawl Stars para 16 equipes, previsto para dezembro." required></textarea></span></label>
+        <footer><button class="secondary-action" data-close-organizer>Cancelar</button><button class="primary-action" data-submit-organizer>Enviar solicitação <svg><use href="#i-arrow"/></svg></button></footer>
+      </section>
+    </div>
+
+    <div class="toast" data-toast role="status" aria-live="polite"><span>✓</span><p></p></div>
+    
+  <script src="./demo.js"></script></body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="140 420 820 240">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Harmattan-Bold, Harmattan;
+        font-size: 112.86px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #e2e2e2;
+      }
+
+      .cls-3 {
+        fill: #fe5e00;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        font-family: Harmattan-Regular, Harmattan;
+        font-size: 62.35px;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-3" d="M205.45,449.04c-6-6-14.29-9.71-23.45-9.71-18.32,0-33.17,14.85-33.17,33.17v168.18h18.9v-105.42h27.91v105.42h19.53v-168.18c0-9.17-3.72-17.46-9.72-23.46ZM195.64,515.9h-27.91v-43.4c0-3.85,1.57-7.34,4.09-9.87,2.53-2.52,6.01-4.08,9.87-4.08s7.34,1.57,9.86,4.08c2.53,2.53,4.09,6.01,4.09,9.87v43.4Z"/>
+    <polygon class="cls-3" points="295.74 439.31 289.59 613.58 252.1 613.58 245.95 439.33 263.7 439.31 269.31 597.43 272.37 597.43 277.42 439.31 295.74 439.31"/>
+    <polygon class="cls-3" points="367.77 458.23 311.43 621.4 339.49 621.4 339.49 602.34 358.77 602.34 358.77 640.69 292.19 640.69 292.19 621.4 348.52 458.23 320.6 458.23 320.6 477.16 301.4 477.16 301.4 439.31 367.77 439.31 367.77 458.23"/>
+    <polygon class="cls-3" points="286.62 621.4 286.62 640.69 220.63 640.69 220.63 439.31 239.62 439.31 239.62 621.4 286.62 621.4"/>
+  </g>
+  <g>
+    <text class="cls-1" transform="translate(401.64 535.92)"><tspan x="0" y="0">Arthur Alves</tspan></text>
+    <text class="cls-2" transform="translate(401.64 591.3)"><tspan x="0" y="0">Software e IA</tspan></text>
+  </g>
+</svg>
