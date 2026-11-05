@@ -1,9 +1,42 @@
 'use strict';
-document.querySelectorAll('.brand-reveal').forEach(button=>button.addEventListener('click',()=>button.setAttribute('aria-pressed',String(button.getAttribute('aria-pressed')!=='true'))));
-const galleries={
- 'gamecamp.html':[['gamecamp-demo.png','Visão geral'],['gamecamp-teams.png','Equipes'],['gamecamp-tournaments.png','Campeonatos']],
- 'catalogo.html':[['catalogo-screen.png','Catálogo desktop'],['catalogo-mobile.png','Catálogo no celular']],
- 'useenvio.html':[['zenvio-screen.png','Tela de acesso — interface interna em preparação']],
- 'useivi.html':[['zive-screen.png','Tela de acesso — interface interna em preparação']]
+
+document.querySelectorAll('.brand-reveal').forEach(button => {
+  button.addEventListener('click', () => {
+    button.setAttribute('aria-pressed', String(button.getAttribute('aria-pressed') !== 'true'));
+  });
+});
+
+const previews = {
+  browse: ['catalogo-screen.png', 'Lista de imóveis do catálogo RA Broker', 'Explore os imóveis disponíveis no catálogo.'],
+  filter: ['catalogo-filtros.webp', 'Painel de filtros do catálogo RA Broker', 'Refine a busca por cidade, categoria, preço e outros critérios.'],
+  view: ['catalogo-imovel.webp', 'Página pública de um imóvel no RA Broker', 'Confira as fotos e características de um imóvel.']
 };
-document.querySelectorAll('[data-project]').forEach(project=>{const images=galleries[project.dataset.project];if(!images)return;const details=document.createElement('details');details.className='inline-detail';const summary=document.createElement('summary');summary.textContent=images.length>1?'Ver telas · '+images.length:'Sobre esta prévia';const gallery=document.createElement('div');gallery.className='inline-gallery';gallery.tabIndex=0;gallery.setAttribute('aria-label','Galeria de telas; role horizontalmente para navegar');images.forEach(([src,label])=>{const figure=document.createElement('figure'),img=document.createElement('img'),caption=document.createElement('figcaption');img.src='assets/'+src;img.alt=label;img.loading='lazy';caption.textContent=label;figure.append(img,caption);gallery.append(figure)});details.append(summary,gallery);project.append(details);});
+const frame = document.querySelector('#broker-preview');
+const steps = document.querySelector('.project-steps');
+if (frame && steps) {
+  const image = frame.querySelector('img');
+  const caption = frame.querySelector('figcaption');
+  let selection = 0;
+  steps.hidden = false;
+  steps.addEventListener('click', async event => {
+    const button = event.target.closest('[data-preview]');
+    if (!button || !Object.hasOwn(previews, button.dataset.preview)) return;
+    const [file, alt, text] = previews[button.dataset.preview];
+    const request = ++selection;
+    const source = 'assets/' + file;
+    const candidate = new Image();
+    candidate.src = source;
+    try { await candidate.decode(); } catch {
+      if (request === selection) caption.textContent = 'Não foi possível carregar esta tela. Tente novamente.';
+      return;
+    }
+    if (request !== selection) return;
+    image.src = source;
+    image.alt = alt;
+    caption.textContent = text;
+    steps.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      image.animate?.([{opacity:.55}, {opacity:1}], {duration:220, easing:'ease-out'});
+    }
+  });
+}
