@@ -1,0 +1,29 @@
+.scroll-scene { position: relative; min-width: 0; grid-column: 1 / -1; }
+.scene-active > .scene-sticky { position: sticky; top: var(--scene-top); }
+.scene-sticky { margin: 0; }
+.scene-stack { display: grid; gap: 20px; }
+.scene-layer { min-width: 0; }
+.scene-active .scene-stack { perspective: 1200px; transform-style: preserve-3d; }
+.scene-active .scene-layer {
+  grid-area: 1 / 1;
+  align-self: start;
+  border-radius: 14px;
+  box-shadow: 0 24px 45px var(--soft-shadow);
+  will-change: transform, opacity;
+}
+.scene-active .project-frame .scene-stack { width: 86%; margin: 30px auto; }
+.scene-stack > img { border: 0; }
+.scene-active .project-frame img { max-height: 48svh; object-fit: cover; }
+.scene-active .dj-layout { align-items: center; }
+.scene-active .dj-sketch { opacity: .75; }
+.scene-active .dj-family { margin: 28px 5%; }
+.scene-active .dj-variants { background: var(--bg); padding-bottom: 4px; }
+.scene-sticky .feature-copy > small { letter-spacing: .08em; }
+
+@media (max-width: 760px) {
+  .scene-active .project-frame .scene-stack { width: 88%; }
+  .scene-sticky.project-feature { padding-block: 18px; }
+  .scene-sticky .feature-copy h3 { margin-block: 8px; }
+  .scene-sticky .feature-copy p { margin-bottom: 8px; }
+  .scene-sticky .dj-sketch .identity-plate { aspect-ratio: 3; }
+}
