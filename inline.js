@@ -8,7 +8,6 @@ document.querySelectorAll('.brand-reveal').forEach(button => {
 
 const previews = {
   browse: ['catalogo-screen.png', 'Lista de imóveis do catálogo RA Broker', 'Explore os imóveis disponíveis no catálogo.'],
-  filter: ['catalogo-filtros.webp', 'Painel de filtros do catálogo RA Broker', 'Refine a busca por cidade, categoria, preço e outros critérios.'],
   view: ['catalogo-imovel.webp', 'Página pública de um imóvel no RA Broker', 'Confira as fotos e características de um imóvel.']
 };
 const frame = document.querySelector('#broker-preview');
@@ -38,5 +37,17 @@ if (frame && steps) {
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       image.animate?.([{opacity:.55}, {opacity:1}], {duration:220, easing:'ease-out'});
     }
+  });
+}
+
+const familyControls = document.querySelector('.dj-controls');
+const familyPanels = document.querySelectorAll('[data-family-panel]');
+if (familyControls && familyPanels.length) {
+  familyControls.hidden = false;
+  familyControls.addEventListener('click', event => {
+    const button = event.target.closest('[data-family]');
+    if (!button) return;
+    familyPanels.forEach(panel => { panel.hidden = panel.dataset.familyPanel !== button.dataset.family; });
+    familyControls.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
   });
 }
