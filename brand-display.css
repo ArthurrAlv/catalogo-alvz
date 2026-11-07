@@ -14,11 +14,11 @@
 }
 .phone-stage {
   aspect-ratio: 860 / 1520;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr);
-  justify-items: center;
+  position: relative;
 }
 .phone-shell {
+  position: absolute;
+  inset: 0 6.5%;
   padding: 7px;
   border-radius: 29px;
   border: 1px solid var(--device-edge);
@@ -27,8 +27,9 @@
 }
 .phone-shell img {
   display: block;
-  width: auto;
+  width: 100%;
   height: 100%;
+  object-fit: contain;
   border-radius: 22px;
 }
 .invitation-preview img {
