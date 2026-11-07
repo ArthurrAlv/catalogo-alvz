@@ -7,8 +7,8 @@ document.querySelectorAll('.brand-reveal').forEach(button => {
 });
 
 const previews = {
-  browse: ['catalogo-screen.png', 'Lista de imóveis do catálogo RA Broker', 'Explore os imóveis disponíveis no catálogo.'],
-  view: ['catalogo-imovel.webp', 'Página pública de um imóvel no RA Broker', 'Confira as fotos e características de um imóvel.']
+  browse: ['catalogo-screen.png', 'Lista de imóveis do catálogo RA Broker', 'Listagem de imóveis com busca e filtros.'],
+  view: ['catalogo-imovel.webp', 'Página pública de um imóvel no RA Broker', 'Ficha do imóvel com galeria de fotos, preço e características.']
 };
 const frame = document.querySelector('#broker-preview');
 const steps = document.querySelector('.project-steps');

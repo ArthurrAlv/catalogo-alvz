@@ -30,7 +30,7 @@
     detail.src = 'assets/catalogo-imovel.webp';
     detail.alt = 'Fotos e detalhes de um imóvel no catálogo RA Broker';
     stack.append(detail);
-    broker.querySelector('figcaption').textContent = 'Da busca aos detalhes do imóvel.';
+    broker.querySelector('figcaption').textContent = 'Listagem de imóveis e ficha com galeria, preço e características.';
     document.querySelector('.project-steps').hidden = true;
     createScene(broker.closest('.project-feature'), [image, detail], stack);
   }
