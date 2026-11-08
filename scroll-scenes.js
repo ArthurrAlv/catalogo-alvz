@@ -17,7 +17,9 @@
       layer.hidden = false;
       layer.classList.add('scene-layer');
     });
-    scenes.push({ track, content, layers });
+    const scene = { track, content, layers };
+    scenes.push(scene);
+    return scene;
   }
 
   const broker = document.querySelector('#broker-preview');
@@ -39,6 +41,24 @@
   if (family) {
     document.querySelector('.dj-controls').hidden = true;
     createScene(family.closest('.dj-showcase'), [...family.children], family);
+  }
+
+  const invitations = document.querySelector('.invitation-gallery');
+  if (invitations) {
+    const previews = [...invitations.querySelectorAll('.invitation-preview')];
+    const scene = createScene(invitations.closest('.invitation-feature'), previews, invitations);
+    if (scene) {
+      previews.forEach((preview, index) => {
+        preview.addEventListener('focus', () => {
+          if (!scene.active || !preview.matches(':focus-visible')) return;
+          const start = scrollY + scene.track.getBoundingClientRect().top - scene.top;
+          const offset = scene.distance * index / (previews.length - 1);
+          scrollTo({ top: start + offset, behavior: 'instant' });
+          scene.progress = undefined;
+          schedule();
+        });
+      });
+    }
   }
 
   function measure() {
@@ -71,7 +91,7 @@
     previousTime = time;
     let moving = false;
 
-    // Read both positions before writing any styles.
+    // Read the scene positions before writing any styles.
     const targets = scenes.map(scene => scene.active
       ? clamp((scene.top - scene.track.getBoundingClientRect().top) / scene.distance)
       : 0);
@@ -94,6 +114,11 @@
           ? `translate3d(${orbit * 15}%, ${orbit * -9}%, ${(depth - 1) * 160}px) rotateY(${orbit * -24}deg) scale(${0.88 + depth * 0.12})`
           : '';
         layer.style.opacity = scene.active ? String(0.24 + (depth + 1) * 0.38) : '';
+        if (layer instanceof HTMLAnchorElement) {
+          const isFront = index === Math.round(position);
+          layer.style.zIndex = scene.active && isFront ? '1' : '';
+          layer.style.pointerEvents = scene.active && !isFront ? 'none' : '';
+        }
       });
     });
 

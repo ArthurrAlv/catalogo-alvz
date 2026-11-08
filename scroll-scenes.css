@@ -18,10 +18,20 @@
 .scene-active .dj-sketch { opacity: .75; }
 .scene-active .dj-family { margin: 28px 5%; }
 .scene-active .dj-variants { background: var(--bg); padding-bottom: 4px; }
+.scene-active .invitation-gallery {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(84%, 35svh, 300px);
+  transform-style: flat;
+}
+.scene-active .invitation-preview {
+  background: var(--bg);
+  padding-bottom: 6px;
+}
 .scene-sticky .feature-copy > small { letter-spacing: .08em; }
 
 @media (max-width: 760px) {
   .scene-active .project-frame .scene-stack { width: 88%; }
+  .scene-active .invitation-gallery { width: min(78%, 24svh, 300px); }
   .scene-sticky.project-feature { padding-block: 18px; }
   .scene-sticky .feature-copy h3 { margin-block: 8px; }
   .scene-sticky .feature-copy p { margin-bottom: 8px; }
