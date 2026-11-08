@@ -5,8 +5,7 @@
 .dj-showcase{grid-column:1/-1;border-top:1px solid var(--line);padding-top:28px}.dj-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:20px}.dj-heading h3{margin:0}.dj-controls{margin:0}.dj-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr);gap:16px}.dj-variants{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.dj-variants[hidden]{display:none}.dj-sketch .identity-plate{aspect-ratio:1.28}.site-footer .footer-signature img{background:none;padding:0;border-radius:0}
 @media(max-width:760px){.identity-collection{grid-template-columns:1fr;gap:30px}.dj-layout{grid-template-columns:1fr}.dj-sketch .identity-plate{aspect-ratio:2.15}.dj-heading{align-items:flex-start;flex-direction:column}}
 
-.gamecamp-phone,
-.invitation-preview {
+.gamecamp-phone {
   width: min(100%, 300px);
   min-width: 0;
   margin: 0 auto;
@@ -31,6 +30,28 @@
   height: 100%;
   object-fit: contain;
   border-radius: 22px;
+}
+.invitation-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 3vw, 20px);
+  width: min(100%, 620px);
+  margin-inline: auto;
+}
+.invitation-preview {
+  display: block;
+  min-width: 0;
+  text-align: center;
+  font-size: .875rem;
+}
+.invitation-preview:hover > span:last-child {
+  text-decoration: underline;
+}
+.invitation-kind {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .75rem;
 }
 .invitation-preview img {
   display: block;
